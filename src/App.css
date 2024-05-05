@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  font-family: "Spinnaker", sans-serif;
+  background: #191919;
 }
 
-.App-link {
-  color: #61dafb;
+main {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  margin: 100px 0px 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+section {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  width: 64px;
+  height: 500px;
+  border-radius: 36px;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0.9;
+  transition: 0.5s;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: rgb(255 255 255 / 96%);
+  margin: 0;
+}
+
+p {
+  color: rgb(255 255 255 / 66%);
+  margin: 0;
+}
+
+section.active {
+  width: 400px;
+  opacity: 1;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  background: rgb(255 255 255 / 80%);
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  padding: 100px 0 20px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 0%), rgb(0 0 0 / 80%));
+  transition: 0.25s;
+}
+
+section.active .content {
+  opacity: 1;
+  visibility: visible;
+}
+
+img {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  height: 150%;
+  filter: grayscale(0.4);
+}
+
+@media all and (max-width: 750px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 50px;
   }
-  to {
-    transform: rotate(360deg);
+
+  section {
+    position: relative;
+    overflow: hidden;
+    background: #ffffff;
+    width: 300px;
+    height: 64px;
+    border-radius: 36px;
+    display: flex;
+    align-items: flex-end;
+    opacity: 0.9;
+    transition: 0.5s;
+  }
+
+  section.active {
+    height: 400px;
+    width: 300px;
+    opacity: 1;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  img {
+    height: 110%;
+    width: 200%;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+  
+  .icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
   }
 }
